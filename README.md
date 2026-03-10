@@ -518,7 +518,7 @@ Creates Notifications in PostgreSQL & MongoDB
 #### **Producer Configuration**
 ```python
 {
-    'bootstrap.servers': '147.93.18.209:9092',  # Remote Kafka server
+    'bootstrap.servers': 'localhost:9092',  # Remote Kafka server
     'acks': 'all',  # Wait for all replicas
     'retries': 3,  # Retry failed messages
     'allow.auto.create.topics': 'true'  # Auto-create topics
@@ -528,7 +528,7 @@ Creates Notifications in PostgreSQL & MongoDB
 #### **Consumer Configuration**
 ```python
 {
-    'bootstrap.servers': '147.93.18.209:9092',
+    'bootstrap.servers': 'localhost:9092',
     'group.id': 'notification-consumers',
     'auto.offset.reset': 'earliest',  # Read from beginning
     'allow.auto.create.topics': 'true'
@@ -592,7 +592,7 @@ Edit `.env` file:
 
 **For Remote Kafka (Production):**
 ```env
-KAFKA_BOOTSTRAP_SERVERS=147.93.18.209:9092
+KAFKA_BOOTSTRAP_SERVERS=localhost:9092
 ```
 
 **For Local Kafka (Development):**
@@ -628,13 +628,13 @@ pip install -r requirements.txt
 Create `.env` file:
 ```env
 # PostgreSQL
-POSTGRES_URL=postgresql://root:AI-Tutor@212.38.94.169:5432/postgres
+POSTGRES_URL=postgresql://localhost@5432/postgres
 
 # MongoDB
-MONGO_URI=mongodb://root:aitutor-2025@212.38.94.169:27017
+MONGO_URI=mongodb://localhost@27017
 
 # Kafka (Remote)
-KAFKA_BOOTSTRAP_SERVERS=147.93.18.209:9092
+KAFKA_BOOTSTRAP_SERVERS=localhost:9092
 KAFKA_NOTIFICATION_TOPIC=test-notifications
 KAFKA_CONSUMER_GROUP=notification-consumers
 
@@ -953,5 +953,6 @@ curl http://localhost:5000/api/admin/notifications?limit=5
 ```
 
 ---
+
 
 **🎓 This notification system provides a complete faculty-to-student communication platform with comprehensive API endpoints for all frontend integration needs!**
